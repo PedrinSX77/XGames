@@ -1,6 +1,13 @@
-import { Form } from "./components/form";
+import { Form } from "./components/Form";
+import { Feed } from "./components/Feed";
 
 function App() {
-  return <Form />;
+  return (
+    <main>
+      <Form />
+      <Feed />
+    </main>
+  );
 }
+
 export default App;
