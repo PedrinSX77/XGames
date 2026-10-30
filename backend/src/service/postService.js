@@ -1,4 +1,4 @@
-import { prisma } from "../../prisma/prismaInterface";
+import { prisma } from "../../prisma/prismaInterface.js";
 
 async function createPost(post) {
   const newPost = await prisma.post.create({
@@ -11,4 +11,13 @@ async function createPost(post) {
   return newPost;
 }
 
-export { createPost };
+async function collectAllPosts() {
+  const allPosts = await prisma.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+  return allPosts;
+}
+
+export { createPost, collectAllPosts };

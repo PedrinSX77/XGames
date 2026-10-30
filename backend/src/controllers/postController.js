@@ -1,4 +1,4 @@
-import { createPost } from "../service/postService";
+import { collectAllPosts, createPost } from "../service/postService.js";
 
 async function setCreatePost(req, res) {
   const response = await createPost(req.body);
@@ -9,4 +9,13 @@ async function setCreatePost(req, res) {
   }
 }
 
-export { setCreatePost };
+async function getAllPosts(req, res) {
+  try {
+    const posts = await collectAllPosts();
+    return res.status(200).json(posts);
+  } catch (error) {
+    return res.status(500).json({ error: "Erro ao buscar posts." });
+  }
+}
+
+export { setCreatePost, getAllPosts };
