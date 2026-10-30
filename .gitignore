@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+**/node_modules/
+
+# Variáveis de ambiente sensíveis
+.env
+.env*.local
+**/.env
+
+# Builds e logs
+dist/
+dist-ssr/
+*.log
+
+# Sistema operacional / IDEs
+.DS_Store
+Thumbs.db
+.vscode/
