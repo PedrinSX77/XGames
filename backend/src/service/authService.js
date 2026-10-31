@@ -48,5 +48,33 @@ export async function login(data) {
     process.env.JWT_SECRET,
     { expiresIn: "7d" },
   );
-  return { token, user: { id, username, email } };
+  const userObj = {
+    id: user.id,
+    username: user.username,
+    email: user.email,
+  };
+  return { token, user: userObj };
+}
+
+export async function whoIsMe(userId) {
+  const { id } = userId;
+  const user = await prisma.user.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      name: true,
+      username: true,
+      email: true,
+    },
+  });
+
+  if (!user) {
+    const error = new Error("Usuário não encontrado");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  return user;
 }

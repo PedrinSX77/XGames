@@ -1,13 +1,7 @@
-import { Form } from "./components/Form";
-import { Feed } from "./components/Feed";
+import { AppRoutes } from "./routes/routes";
 
 function App() {
-  return (
-    <main>
-      <Form />
-      <Feed />
-    </main>
-  );
+  return <AppRoutes />;
 }
 
 export default App;

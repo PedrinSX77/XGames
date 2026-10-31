@@ -21,13 +21,13 @@
 
 ---
 
-### ⏳ [TASK-2.3] Retornar Dados do Usuário no Login e Rota `/me` (Backend)
+### ✅ [TASK-2.3] Retornar Dados do Usuário no Login e Rota `/me` (Backend)
 
 - **Contexto:** Atualmente a função `login` retorna apenas a string pura do token. O Frontend vai precisar saber o nome, `@username` e ID do usuário logado.
 - **Onde atuar:** `backend/src/service/authService.js`, `backend/src/controllers/authController.js` e `backend/src/routes/authRouter.js`.
 - **Requisitos Técnicos:**
-  - [ ] Padronizar o retorno de `POST /login` para um objeto JSON contendo `{ token, user: { id, name, username, email } }`.
-  - [ ] _(Opcional, mas recomendado)_ Criar uma rota protegida `GET /me` que usa o middleware de autenticação JWT e devolve os dados públicos atualizados do usuário logado.
+  - [x] Padronizar o retorno de `POST /login` para um objeto JSON contendo `{ token, user: { id, name, username, email } }`.
+  - [x] _(Opcional, mas recomendado)_ Criar uma rota protegida `GET /me` que usa o middleware de autenticação JWT e devolve os dados públicos atualizados do usuário logado.
 - **Critério de Aceite:** Ao logar no Insomnia, a resposta traz o objeto com `token` e `user` sem o campo `password`.
 
 ---
