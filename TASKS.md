@@ -32,15 +32,15 @@
 
 ---
 
-### ⏳ [TASK-2.4] Roteamento e Páginas de Login e Cadastro (Frontend)
+### ✅ [TASK-2.4] Roteamento e Páginas de Login e Cadastro (Frontend)
 
 - **Contexto:** O Frontend hoje só tem uma tela única em `App.tsx`. Precisamos de navegação entre páginas.
 - **Onde atuar:** `frontend/package.json`, `frontend/src/pages/`, `frontend/src/routes/` e `frontend/src/App.tsx`.
 - **Requisitos Técnicos:**
-  - [ ] Instalar `react-router-dom` no frontend.
-  - [ ] Criar a página de **Cadastro (`/register`)** com inputs controlados para `name`, `username`, `email` e `password`, consumindo `POST /register` e redirecionando para `/login` em caso de sucesso. Exibir mensagem de erro da API na tela se falhar.
-  - [ ] Criar a página de **Login (`/login`)** consumindo `POST /login`.
-  - [ ] Criar a página principal do **Feed (`/`)**.
+  - [x] Instalar `react-router-dom` no frontend.
+  - [x] Criar a página de **Cadastro (`/register`)** com inputs controlados para `name`, `username`, `email` e `password`, consumindo `POST /register` e redirecionando para `/login` em caso de sucesso. Exibir mensagem de erro da API na tela se falhar.
+  - [x] Criar a página de **Login (`/login`)** consumindo `POST /login`.
+  - [x] Criar a página principal do **Feed (`/`)**.
 - **Critério de Aceite:** Navegar entre `/login`, `/register` e `/` funcionando pelo navegador.
 
 ---

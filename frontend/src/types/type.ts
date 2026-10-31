@@ -10,3 +10,7 @@ export interface Post {
   content: string;
   createdAt: string;
 }
+
+export interface AuthFormProps {
+  mode: "login" | "register";
+}

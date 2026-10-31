@@ -30,7 +30,10 @@ export function PostCard({ post }: PostCardProps) {
       <header className={styles.header}>
         <div className={styles.authorInfo}>
           <div className={styles.avatar}>{initialLetter}</div>
-          <h3 className={styles.authorName}>@{post.author.username}</h3>
+          <div>
+            <h3 className={styles.authorName}>{post.author.name}</h3>
+            <span className={styles.username}>@{post.author.username}</span>
+          </div>
         </div>
         <span className={styles.time}>
           Há {formatarTempoRelativo(post.createdAt)}
