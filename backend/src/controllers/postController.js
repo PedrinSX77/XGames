@@ -2,7 +2,7 @@ import { collectAllPosts, createPost } from "../service/postService.js";
 
 async function setCreatePost(req, res, next) {
   try {
-    const response = await createPost(req);
+    const response = await createPost(req.body.content, req.user.id);
     return res.status(201).json(response);
   } catch (err) {
     return next(err);
