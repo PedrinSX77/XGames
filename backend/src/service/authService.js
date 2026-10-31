@@ -48,5 +48,5 @@ export async function login(data) {
     process.env.JWT_SECRET,
     { expiresIn: "7d" },
   );
-  return token;
+  return { token, user: { id, username, email } };
 }

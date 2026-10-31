@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "./form.module.css";
 
 export function Form() {
-  const [authorName, setAuthorName] = useState("");
   const [content, setContent] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -15,14 +14,13 @@ export function Form() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ authorName, content }),
+          body: JSON.stringify({ content }),
         },
       );
 
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       } else {
-        setAuthorName("");
         setContent("");
       }
 
@@ -32,26 +30,12 @@ export function Form() {
     }
   }
 
-  const isFormInvalid = authorName.trim() === "" || content.trim() === "";
+  const isFormInvalid = content.trim() === "";
   const remainingChars = 280 - content.length;
 
   return (
     <form className={styles.formCard} onSubmit={handleSubmit}>
       <h2 className={styles.title}>Criar Postagem</h2>
-
-      <div className={styles.fieldGroup}>
-        <label className={styles.label} htmlFor="author">
-          Nome do Autor
-        </label>
-        <input
-          id="author"
-          className={styles.input}
-          type="text"
-          placeholder="Ex: Pedro Henrique"
-          value={authorName}
-          onChange={(e) => setAuthorName(e.target.value)}
-        />
-      </div>
 
       <div className={styles.fieldGroup}>
         <label className={styles.label} htmlFor="post-text">

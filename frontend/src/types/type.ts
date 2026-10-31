@@ -1,6 +1,12 @@
+interface Author {
+  id: string;
+  name: string;
+  username: string;
+}
+
 export interface Post {
   id: string;
-  authorName: string;
+  author: Author;
   content: string;
   createdAt: string;
 }

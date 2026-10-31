@@ -21,16 +21,20 @@ function formatarTempoRelativo(dataIso: string) {
 }
 
 export function PostCard({ post }: PostCardProps) {
-  const initialLetter = post.authorName ? post.authorName[0].toUpperCase() : "?";
+  const initialLetter = post.author.username
+    ? post.author.username[0].toUpperCase()
+    : "?";
 
   return (
     <article className={styles.card}>
       <header className={styles.header}>
         <div className={styles.authorInfo}>
           <div className={styles.avatar}>{initialLetter}</div>
-          <h3 className={styles.authorName}>{post.authorName}</h3>
+          <h3 className={styles.authorName}>@{post.author.username}</h3>
         </div>
-        <span className={styles.time}>Há {formatarTempoRelativo(post.createdAt)}</span>
+        <span className={styles.time}>
+          Há {formatarTempoRelativo(post.createdAt)}
+        </span>
       </header>
 
       <p className={styles.content}>{post.content}</p>
