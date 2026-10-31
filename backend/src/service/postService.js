@@ -3,8 +3,8 @@ import { prisma } from "../../prisma/prismaInterface.js";
 async function createPost(post) {
   const newPost = await prisma.post.create({
     data: {
-      authorName: post.authorName,
-      content: post.content,
+      authorName: post.user.id,
+      content: post.body.content,
     },
   });
 
