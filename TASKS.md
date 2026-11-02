@@ -45,15 +45,15 @@
 
 ---
 
-### ⏳ [TASK-2.5] Estado Global de Autenticação e Persistência (Frontend)
+### ✅ [TASK-2.5] Estado Global de Autenticação e Persistência (Frontend)
 
 - **Contexto:** Quando o usuário faz login e dá F5 na página, ele não pode ser deslogado.
 - **Onde atuar:** `frontend/src/contexts/` e `frontend/src/types/type.ts`.
 - **Requisitos Técnicos:**
-  - [ ] Definir a `interface User` em `frontend/src/types/type.ts`.
-  - [ ] Guardar o `token` (e dados básicos do usuário) no `localStorage` ao fazer login.
-  - [ ] Criar um `AuthContext` que disponibilize: `user`, `token`, `isAuthenticated`, função `signIn` e função `signOut` (logout) para toda a aplicação.
-  - [ ] Criar um cabeçalho (Navbar) exibindo o `@username` do usuário logado e um botão de "Sair".
+  - [x] Definir a `interface User` em `frontend/src/types/type.ts`.
+  - [x] Guardar o `token` (e dados básicos do usuário) no `localStorage` ao fazer login.
+  - [x] Criar um `AuthContext` que disponibilize: `user`, `token`, `isAuthenticated`, função `signIn` e função `signOut` (logout) para toda a aplicação.
+  - [x] Criar um cabeçalho (Navbar) exibindo o `@username` do usuário logado e um botão de "Sair".
 - **Critério de Aceite:** Ao logar, o usuário vai para `/`, vê seu `@username` no topo, dá F5 na página e continua logado. Ao clicar em "Sair", o `localStorage` é limpo e ele volta para `/login`.
 
 ---
@@ -63,8 +63,8 @@
 - **Contexto:** Atualizar os componentes da Fase 1 para o novo modelo com usuário autenticado e atualizar a lista sem precisar recarregar a página.
 - **Onde atuar:** `frontend/src/types/type.ts`, `frontend/src/components/Form/index.tsx`, `frontend/src/components/Feed/index.tsx` e `frontend/src/components/PostCard/index.tsx`.
 - **Requisitos Técnicos:**
-  - [ ] Atualizar a `interface Post` em `type.ts` trocando `authorName: string` por `author: { id: string; name: string; username: string }`.
-  - [ ] No `Form`: remover completamente o input de "Nome do Autor". Enviar apenas `content` no body e incluir o header `Authorization: Bearer <token>` na requisição `POST /posts`.
+  - [x] Atualizar a `interface Post` em `type.ts` trocando `authorName: string` por `author: { id: string; name: string; username: string }`.
+  - [x] No `Form`: remover completamente o input de "Nome do Autor". Enviar apenas `content` no body e incluir o header `Authorization: Bearer <token>` na requisição `POST /posts`.
   - [ ] **Comunicação Pai-Filho (Elevação de Estado / Callback):** Quando o `Form` criar um post com sucesso, o `Feed` deve exibir o novo post imediatamente no topo da lista sem o usuário precisar dar F5.
   - [ ] No `PostCard`: exibir o nome real (`post.author.name`) e o `@username` (`@post.author.username`) ao lado.
 

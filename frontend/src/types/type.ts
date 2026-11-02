@@ -11,6 +11,19 @@ export interface Post {
   createdAt: string;
 }
 
+export interface User {
+  id: string;
+  name: string;
+  username: string;
+  email: string;
+}
+
+export interface AuthContextType {
+  user: User | null;
+  login: (userData: User) => void;
+  logout: () => void;
+}
+
 export interface AuthFormProps {
   mode: "login" | "register";
 }

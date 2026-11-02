@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import type { AuthFormProps } from "../../../types/type.ts";
 import { useNavigate, Link } from "react-router-dom";
 import styles from "./auth.module.css";
+import { AuthContext } from "../../../context/authContext.tsx";
+import { Logo } from "../../Logo/index.tsx";
 
 export default function AuthForm({ mode }: AuthFormProps) {
+  const auth = useContext(AuthContext);
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -44,6 +47,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem("token", data.token);
+        auth?.login(data.user);
         navigate("/");
       } else {
         alert("Erro ao entrar, por favor tente novamente mais tarde");
@@ -55,7 +59,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
     <div className={styles.authPage}>
       <form className={styles.authCard} onSubmit={handleSubmit}>
         <div className={styles.brandHeader}>
-          <div className={styles.brandLogo}>XG</div>
+          <Logo size={38} />
           <h2 className={styles.title}>
             {isRegister ? "Criar Conta" : "Entrar no XGames"}
           </h2>

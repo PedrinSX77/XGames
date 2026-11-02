@@ -1,47 +1,37 @@
 .feedContainer {
-  max-width: 580px;
-  margin: 0 auto 60px auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
 }
 
 .feedHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 4px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border-hairline);
 }
 
 .feedTitle {
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #f3f4f6;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
 }
 
 .postBadge {
   font-size: 0.75rem;
-  font-weight: 600;
-  background-color: rgba(170, 59, 255, 0.15);
-  color: #c084fc;
-  padding: 2px 8px;
-  border-radius: 12px;
-  border: 1px solid rgba(170, 59, 255, 0.3);
+  font-weight: 500;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
 }
 
 .emptyState {
   text-align: center;
-  padding: 48px 24px;
-  background-color: #1e1f29;
-  border: 1px dashed #2e303d;
-  border-radius: 12px;
-  color: #9ca3af;
+  padding: 48px 20px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-hairline);
 }
 
 .emptyState p {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }

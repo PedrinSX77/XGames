@@ -17,7 +17,7 @@ function formatarTempoRelativo(dataIso: string) {
   if (dias > 0) return `${dias}d`;
   if (horas > 0) return `${horas}h`;
   if (minutos > 0) return `${minutos}min`;
-  return "poucos segundos";
+  return "agora";
 }
 
 export function PostCard({ post }: PostCardProps) {
@@ -27,29 +27,54 @@ export function PostCard({ post }: PostCardProps) {
 
   return (
     <article className={styles.card}>
-      <header className={styles.header}>
-        <div className={styles.authorInfo}>
-          <div className={styles.avatar}>{initialLetter}</div>
-          <div>
-            <h3 className={styles.authorName}>{post.author.name}</h3>
-            <span className={styles.username}>@{post.author.username}</span>
-          </div>
-        </div>
-        <span className={styles.time}>
-          Há {formatarTempoRelativo(post.createdAt)}
-        </span>
-      </header>
+      <div className={styles.avatar}>{initialLetter}</div>
 
-      <p className={styles.content}>{post.content}</p>
+      <div className={styles.body}>
+        <header className={styles.header}>
+          <span className={styles.authorName}>{post.author.name}</span>
+          <span className={styles.username}>@{post.author.username}</span>
+          <span className={styles.dot}>·</span>
+          <span className={styles.time}>
+            {formatarTempoRelativo(post.createdAt)}
+          </span>
+        </header>
 
-      <footer className={styles.footer}>
-        <button type="button" className={styles.actionBtn}>
-          <span>💬</span> 0
-        </button>
-        <button type="button" className={styles.actionBtn}>
-          <span>🤍</span> 0
-        </button>
-      </footer>
+        <p className={styles.content}>{post.content}</p>
+
+        <footer className={styles.footer}>
+          <button type="button" className={styles.actionBtn}>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+            <span>0</span>
+          </button>
+
+          <button type="button" className={styles.actionBtn}>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.75"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+            <span>0</span>
+          </button>
+        </footer>
+      </div>
     </article>
   );
 }
