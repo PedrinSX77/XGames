@@ -1,33 +1,8 @@
-import { useEffect, useState } from "react";
-import type { Post } from "../../types/type";
+import type { FeedProps } from "../../types/type";
 import { PostCard } from "../PostCard";
 import styles from "./feed.module.css";
 
-export function Feed() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function carregarPosts() {
-      try {
-        const response = await fetch(
-          `${import.meta.env.VITE_BACKEND_URL}/posts`,
-        );
-
-        if (!response.ok) {
-          throw new Error("Não foi possível carregar os posts...");
-        }
-        const data: Post[] = await response.json();
-        setPosts(data);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    carregarPosts();
-  }, []);
-
+export function Feed({ posts, loading = false }: FeedProps) {
   return (
     <section className={styles.feedContainer}>
       <div className={styles.feedHeader}>

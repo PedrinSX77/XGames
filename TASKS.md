@@ -65,8 +65,8 @@
 - **Requisitos Técnicos:**
   - [x] Atualizar a `interface Post` em `type.ts` trocando `authorName: string` por `author: { id: string; name: string; username: string }`.
   - [x] No `Form`: remover completamente o input de "Nome do Autor". Enviar apenas `content` no body e incluir o header `Authorization: Bearer <token>` na requisição `POST /posts`.
-  - [ ] **Comunicação Pai-Filho (Elevação de Estado / Callback):** Quando o `Form` criar um post com sucesso, o `Feed` deve exibir o novo post imediatamente no topo da lista sem o usuário precisar dar F5.
-  - [ ] No `PostCard`: exibir o nome real (`post.author.name`) e o `@username` (`@post.author.username`) ao lado.
+  - [x] **Comunicação Pai-Filho (Elevação de Estado / Callback):** Quando o `Form` criar um post com sucesso, o `Feed` deve exibir o novo post imediatamente no topo da lista sem o usuário precisar dar F5.
+  - [x] No `PostCard`: exibir o nome real (`post.author.name`) e o `@username` (`@post.author.username`) ao lado.
 
 ---
 

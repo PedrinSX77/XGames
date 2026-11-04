@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styles from "./form.module.css";
+import type { FormProps } from "../../../types/type";
+import type { Post } from "../../../types/type";
 
-export function Form() {
+export function Form({ onPostCreated }: FormProps) {
   const [content, setContent] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
@@ -22,6 +24,8 @@ export function Form() {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       } else {
+        const newPost: Post = await response.json();
+        onPostCreated?.(newPost);
         setContent("");
       }
 

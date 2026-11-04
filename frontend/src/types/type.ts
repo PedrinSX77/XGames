@@ -27,3 +27,12 @@ export interface AuthContextType {
 export interface AuthFormProps {
   mode: "login" | "register";
 }
+
+export interface FormProps {
+  onPostCreated?: (newPost: Post) => void;
+}
+
+export interface FeedProps {
+  posts: Post[];
+  loading?: boolean;
+}
